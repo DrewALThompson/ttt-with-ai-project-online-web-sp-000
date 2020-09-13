@@ -16,7 +16,6 @@ class Players::Computer < Player
 
   def move(board)
     @board = board
-    timer <= 0 ? @timer = 0.01 : @timer = timer
     case
       when winning_move != nil
         input = winning_move + 1
@@ -55,6 +54,7 @@ class Players::Computer < Player
       winning_cell = winning_row.find {|cell| board.cells[cell] == " "}
     end
   end
+  
   def center?
     board.cells[4] == " "
   end
