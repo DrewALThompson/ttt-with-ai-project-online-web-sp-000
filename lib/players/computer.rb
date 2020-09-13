@@ -13,15 +13,19 @@ class Players
   [0, 4, 8],
   [6, 4, 2]
   ]
-  CORNERS = [0, 2, 8, 6]
+  
+  
+  CORNERS = [0, 2, 6, 8]
+  
+  
+  def corners
+    CORNERS.shuffle!
+  end
   
   def center?
     board.cells[4] == " "
   end
   
-  def corners
-    CORNERS.shuffle!
-  end
   
   def corner
     corners.find {|corner| board.cells[corner] == " "}
