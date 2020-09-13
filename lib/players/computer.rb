@@ -33,7 +33,6 @@ class Players
           input = (1..9).to_a.sample
         end
     end
-    sleep(@timer)
     input.to_s
   end
   def other
