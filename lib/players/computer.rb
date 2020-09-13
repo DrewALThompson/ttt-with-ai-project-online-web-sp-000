@@ -30,7 +30,9 @@ class Players
   def corner
     corners.find {|corner| board.cells[corner] == " "}
   end
-  def opposite_corner
+  
+  
+  def opposite
     case
       when board.taken?(1) && !board.taken?(9)
         9
@@ -54,8 +56,8 @@ class Players
         input = block + 1
       when center?
         input = 5
-      when opposite_corner != nil && board.taken?(opposite_corner) != true
-        input = opposite_corner
+      when opposite != nil && board.taken?(opposite_corner) != true
+        input = opposite
       when corner
         input = corner + 1
       else
@@ -77,6 +79,8 @@ class Players
       win_cell = win_row.find {|cell| board.cells[cell] == " "}
     end
   end
+  
+  
   def block
     win_row = WIN_COMBINATIONS.find do |combo|
       (board.cells[combo[0]] == other && board.cells[combo[1]] == other && board.cells[combo[2]] == " ") || (board.cells[combo[1]] == other && board.cells[combo[2]] == other && board.cells[combo[0]] == " ") || (board.cells[combo[2]] == other && board.cells[combo[0]] == other && board.cells[combo[1]] == " ")
