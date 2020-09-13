@@ -1,4 +1,5 @@
-class Players::Computer < Player
+class Players
+  class Computer < Player
   
   attr_accessor :board
   
